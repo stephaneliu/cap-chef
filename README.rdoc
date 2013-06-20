@@ -1,0 +1,30 @@
+= cap-chef
+
+Capistrano tasks to provision VPS as rails server. 
+
+== Assumptions
+
+* This is a WORK IN PROGRESS. It is not complete by any means.
+* Server is Ubuntu
+* Rails server is unicorn
+* Web server is nginx
+* Database is MySQL
+* Database is on same box as nginx
+* Ruby is managed with RVM
+
+== Setup
+
+* Copy files and directories from this project into your Rails project.
+* Modify [[ ]] placeholders in config/deploy.rb
+* Modfiy nginx config file in config/recipes/templates/nginx_unicorn.rb as you like it.
+
+Initial server configurations:
+
+* Copy your public ssh key to your server
+  $ cat ~/.ssh/id_rsa.pub | ssh deployer@[your-server] 'cat >> ~/.ssh/authorized_keys'
+
+== Provisioning your server
+$ cap deploy:setup
+
+== Initial deploy of your Rails app
+$ cap deploy:cold
