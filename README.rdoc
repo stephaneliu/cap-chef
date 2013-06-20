@@ -20,14 +20,18 @@ Capistrano tasks to provision VPS as rails server.
 
 === Initial server configurations:
 
-* Copy your public ssh key to your server
+Copy your public ssh key to your server:
 
     $ cat ~/.ssh/id_rsa.pub | ssh deployer@[your-server] 'cat >> ~/.ssh/authorized_keys'
 
 === Provisioning your server
 
+Install and configure software on server:
+
     $ cap deploy:setup
 
 === Initial deploy of your Rails app
+
+Use cold when server has not been started:
 
     $ cap deploy:cold
